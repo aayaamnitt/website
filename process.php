@@ -32,11 +32,11 @@ if($count==1){
 	setcookie("password", $password, time()+$expires);
 	
 	// Re-direct to backend
-			print "<script type='text/javascript'>window.location='index.php';</script>";
+			print "<script type='text/javascript'>window.location='index.php?msg=logged in';</script>";
 } else {
 
 	// Error Login so Re-direct to "index.php"
-			print "<script type='text/javascript'>window.location='index.php?msg=2';</script>";
+			print "<script type='text/javascript'>window.location='index.php?msg=wrong credentials';</script>";
 
 }
 ?>

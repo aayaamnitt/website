@@ -140,12 +140,8 @@ include 'authenticate.php'
           <?php
              if(isset($_GET['msg'])){
              {$msg=$_GET['msg'];
-              $message="";
-              if($msg==1)
-                  $message="Log in to continue";
-              if($msg==2)
-                  $message="Invalid Credentials";  
-              echo "<li id='msg'><a href='index.html'>".$message."</a><span></span></li>";
+                
+              echo "<li id='msg'><a href='index.php'>".$msg."</a><span></span></li>";
               
 
               }
@@ -222,9 +218,9 @@ include 'authenticate.php'
            <div id='postform-content2'>
            </div>
           <div id='postform-content'>
-         <form action="index.php" method="post" id="commentformtemp">
+         <form action="index.php" method="post" id="formtemp">
          </form>
-           <form action="index.php" method="post" id="commentform">
+           <form action="posts.php" method="post" id="postform">
             
 
             
@@ -234,7 +230,7 @@ include 'authenticate.php'
             </div>
             <div>
               
-              <textarea id="post" name="post"  cols="50" tabindex="2" placeholder="Post"></textarea>
+              <textarea id="post" name="text"  cols="50" tabindex="2" placeholder="Post"></textarea>
             </div>
             
             <div class="no-border">
