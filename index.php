@@ -1,5 +1,6 @@
 <?php
-include 'authenticate.php'
+include 'authenticate.php';
+include 'displayposts.php';
 ?>
 
 
@@ -134,7 +135,7 @@ include 'authenticate.php'
 
 		<nav>
 		    <ul>
-			    <li id="current"><a href="index.html">Home</a><span></span></li>
+			    <li id="current"><a href="index.php">Home</a><span></span></li>
 			    <li><a href="style.html">About us</a><span></span></li>
 
           <?php
@@ -156,7 +157,7 @@ include 'authenticate.php'
 
 
 
-        <form id="quick-search" method="get" action="index.html">
+        <form id="quick-search" method="get" action="index.php">
             <fieldset class="search">
                 <label for="qsearch">Search:</label>
                 <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
@@ -180,7 +181,7 @@ include 'authenticate.php'
 
     <div class="text-block">
         <h2><a href="#">the Head line</a></h2>
-        <p class="post-meta">Posted by <a href="index.html">pradeep</a>  <a href="index.html"></a>, <a href="index.html">internet</a></p>
+        <p class="post-meta">Posted by <a href="index.php">pradeep</a>  <a href="index.php"></a>, <a href="index.php">internet</a></p>
 
         <p>some introduction about aayam.
           blah blah blah
@@ -194,7 +195,7 @@ include 'authenticate.php'
 
 
 
-        <p><a href="index.html" class="more">Continue Reading</a></p>
+        <p><a href="index.php" class="more">Continue Reading</a></p>
 
     </div>
 
@@ -211,35 +212,48 @@ include 'authenticate.php'
      
 
 
-      <h4> <a id='post-trigger' href='#'>
+     
+    <?php if(isset($_COOKIE['username'])&&isset($_COOKIE['password'])){
+                     if(authenticate($_COOKIE['username'],$_COOKIE['password']))
+                  print "
+                 <h4> <a id='post-trigger' href='#'>
                 Post Something  <span>▼</span></a>
                     </h4>
 
            <div id='postform-content2'>
            </div>
           <div id='postform-content'>
-         <form action="index.php" method="post" id="formtemp">
+         <form action='index.php' method='post' id='formtemp'>
          </form>
-           <form action="posts.php" method="post" id="postform">
+           <form action='posts.php' method='post' id='postform' enctype='multipart/form-data' >
             
 
             
             <div>
               
-              <input id="heading" name="heading" placeholder="Heading" type="text" tabindex="1" />
+              <input id='heading' name='heading' placeholder='Heading' type='text' tabindex='1' />
             </div>
+           
+
             <div>
               
-              <textarea id="post" name="text"  cols="50" tabindex="2" placeholder="Post"></textarea>
+              <textarea id='post' name='text'  cols='50' tabindex='2' placeholder='Post'></textarea>
             </div>
+            <div>
+               <input id='image' name='file' type='file' tabindex='3' value='choose'>
+              </div>
             
-            <div class="no-border">
-                <input class="button" type="submit" value="Submit" tabindex="3" />
+            <div class='no-border'>
+                <input class='button' type='submit' value='Submit' tabindex='3' />
             </div>
 
         </form>
         </div>
+          ";
+        }
 
+          ?>
+          
 
 
 
@@ -248,21 +262,26 @@ include 'authenticate.php'
 
         
 
-           <!-- <a href="index.html" title=""><img width="240" height="100" alt="img" class="thumbnail" src="images/thumb-1.jpg" /></a>
+           <!-- <a href="index.php" title=""><img width="240" height="100" alt="img" class="thumbnail" src="images/thumb-1.jpg" /></a>
 
             <div class="top">
 
-               <h4><a href="index.html">Aliquam Risus Justo Lorem Ipsum Dolor Sit Amet</a></h4>
-               <p><span class="datetime">December 19, 2011</span><a class="comment" href="index.html">2 Comments</a></p>
+               <h4><a href="index.php">Aliquam Risus Justo Lorem Ipsum Dolor Sit Amet</a></h4>
+               <p><span class="datetime">December 19, 2011</span><a class="comment" href="index.php">2 Comments</a></p>
 
             </div>
                 -->
-              
+              <?php
+
+                displayposts();
+                ?>
 
             <div class="calloutodd">
-            <h4><a href="index.html">head</a></h4>
-
-             <a href="index.html" title=""><img  class="thumbnail" src="images/thumb-1.jpg" /></a>
+            <h4><a href="index.php">head</a></h4>
+            <div class="datetime">December 19, 2011</div>
+              <p>
+             <a href="index.php" title=""><img  class="thumbnail" src="images/thumb-1.jpg" /></a>
+             
                 <p>
 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
 				Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
@@ -276,6 +295,9 @@ include 'authenticate.php'
              <b class="roundodd">
             <img src="images/gravatar.jpg" />
             </b>
+            <b class="byodd">
+              name name
+            </b>
 
 			</div>
 
@@ -286,18 +308,18 @@ include 'authenticate.php'
         
 
 
-             <!-- <a href="index.html" title=""><img width="240" height="100" alt="img" class="thumbnail" src="images/thumb-1.jpg" /></a>
+             <!-- <a href="index.php" title=""><img width="240" height="100" alt="img" class="thumbnail" src="images/thumb-1.jpg" /></a>
 
             <div class="top">
 
-               <h4><a href="index.html">Aliquam Risus Justo Lorem Ipsum Dolor Sit Amet</a></h4>
-               <p><span class="datetime">December 19, 2011</span><a class="comment" href="index.html">2 Comments</a></p>
+               <h4><a href="index.php">Aliquam Risus Justo Lorem Ipsum Dolor Sit Amet</a></h4>
+               <p><span class="datetime">December 19, 2011</span><a class="comment" href="index.php">2 Comments</a></p>
 
             </div>
                 -->
             <div class="callouteven">
-                     <h4><a href="index.html">head</a></h4>
-             <a href="index.html" title=""><img  class="thumbnail" src="images/thumb-2.jpg" /></a>
+                     <h4><a href="index.php">head</a></h4>
+             <a href="index.php" title=""><img  class="thumbnail" src="images/thumb-2.jpg" /></a>
                 <p>
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
                 Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
@@ -327,8 +349,8 @@ include 'authenticate.php'
 				<div class="sidemenu">
 					<h3>Sidebar Menu</h3>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="index.html">TemplateInfo</a></li>
+						<li><a href="index.php">Home</a></li>
+						<li><a href="index.php">TemplateInfo</a></li>
 						<li><a href="style.html">Style Demo</a></li>
 						<li><a href="blog.html">Blog</a></li>
 						<li><a href="archives.html">Archives</a></li>
@@ -361,12 +383,12 @@ include 'authenticate.php'
 				<h3>Photostream</h3>
 
 				<ul class="photostream clearfix">
-					<li><a href="index.html"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
-					<li><a href="index.html"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
-					<li><a href="index.html"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
-					<li><a href="index.html"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
-					<li><a href="index.html"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
-					<li><a href="index.html"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
+					<li><a href="index.php"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
+					<li><a href="index.php"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
+					<li><a href="index.php"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
+					<li><a href="index.php"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
+					<li><a href="index.php"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
+					<li><a href="index.php"><img width="50" height="50" alt="thumbnail" src="images/thumb.jpg"></a></li>
 				</ul>
 
             <div class="ads">
@@ -417,11 +439,11 @@ include 'authenticate.php'
 
             <div class="footer-list social">
                 <ul>
-                    <li class="facebook"><a href="index.html">Facebook</a></li>
-                    <li class="twitter"><a href="index.html">Twitter</a></li>
-                    <li class="googleplus"><a href="index.html">Google+</a></li>
-                    <li class="email"><a href="index.html">Email</a></li>
-                    <li class="rss"><a href="index.html">RSS Feed</a></li>
+                    <li class="facebook"><a href="index.php">Facebook</a></li>
+                    <li class="twitter"><a href="index.php">Twitter</a></li>
+                    <li class="googleplus"><a href="index.php">Google+</a></li>
+                    <li class="email"><a href="index.php">Email</a></li>
+                    <li class="rss"><a href="index.php">RSS Feed</a></li>
                 </ul>
             </div>
 
@@ -448,7 +470,7 @@ include 'authenticate.php'
         <h3>About</h3>
 
         <p>
-        <a href="index.html"><img width="40" height="40" class="align-left" alt="firefox" src="images/gravatar.jpg"></a>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
+        <a href="index.php"><img width="40" height="40" class="align-left" alt="firefox" src="images/gravatar.jpg"></a>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
         Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc
         justo tempus leo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
         Cras id urna. <a href="#">Learn more...</a>
@@ -465,13 +487,13 @@ include 'authenticate.php'
 
 	<p class="footer-left">
 		&copy; 2015 Aayaam &bull;
-		Design by <a href="index.html">Webteam</a>
+		Design by <a href="index.php">Webteam</a>
 	</p>
 
 	<p class="footer-right">
-	   <a href="index.html">Home</a> |
-		<a href="index.html">Sitemap</a> |
-		<a href="index.html">RSS Feed</a> |
+	   <a href="index.php">Home</a> |
+		<a href="index.php">Sitemap</a> |
+		<a href="index.php">RSS Feed</a> |
       <a class="back-to-top" href="#top">Back to Top</a>
     </p>
 

@@ -88,6 +88,8 @@ img {
     background: #130D0A;
     border: 1px solid #261a14;
     padding: 12px;
+    max-width: 800px;
+    max-height: 600px;
 }
 img.align-right { margin: 6px 0px 6px 12px; }
 img.align-left { margin: 6px 12px 6px 0px; }
@@ -1274,6 +1276,14 @@ nav2 li #signup-content {
            
 
        }
+.datetime{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: smaller;
+}
+
+
 
 .roundeven img {
 
@@ -1291,7 +1301,43 @@ nav2 li #signup-content {
 .roundodd {
        position: absolute;
       top: 2px;
-      left: -70px;
+      left: -70px; 
+       }
+
+.byodd {
+        position: absolute;
+        top: 35px;
+        left: -80px;
+        color: #549207;
+
+          text-decoration: none;
+  outline: 0;
+    margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: smaller;
+  
+  vertical-align: baseline;
+  font-weight: normal;
+           
+
+       }
+
+.byeven{
+        position: absolute;
+        top: 35px;
+        right: -80px;
+        color: #549207;
+
+          text-decoration: none;
+  outline: 0;
+    margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: smaller;
+  
+  vertical-align: baseline;
+  font-weight: normal;
            
 
        }

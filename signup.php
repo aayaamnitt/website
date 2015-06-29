@@ -26,6 +26,6 @@ echo $result;
 
 	
 	// Re-direct to backend
-	print "<script type='text/javascript'>window.location='index.php?msg='Registered successfully';</script>";
+	print "<script type='text/javascript'>window.location='index.php?msg=Registered successfully;</script>";
 
 ?>
