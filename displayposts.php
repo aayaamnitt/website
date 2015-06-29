@@ -25,7 +25,7 @@ function displayposts(){
            					 print "<div class='calloutodd'>
   						   
             				<h4><a href='index.php'>".$heading."</a></h4>
-							<div class='datetime'>".date("Y/m/d", $time)."</div>
+							<div class='datetime'>".$time."</div>
             		  		<p>
             			 	<a href='index.php' title=''><img  class='thumbnail' src='".$imageurl."' /></a>
              
