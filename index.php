@@ -19,6 +19,7 @@ include 'displayposts.php';
 
     <title>Aayaam</title>
 
+
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 
 
@@ -155,15 +156,17 @@ include 'displayposts.php';
 
 
 
+<div id='logo'>
 
-
+</div>
+<!--
         <form id="quick-search" method="get" action="index.php">
             <fieldset class="search">
                 <label for="qsearch">Search:</label>
                 <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
                 <button class="btn" title="Submit Search">Search</button>
             </fieldset>
-
+-->
 
 	<!-- /header -->
 </header></div>

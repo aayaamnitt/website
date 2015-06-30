@@ -157,7 +157,7 @@ td {
 
 /* Form */
 form {
-    width: 940px;
+    
     margin: 18px 0;
     padding: 15px 20px;
     background-color: #130D0A;
@@ -445,11 +445,11 @@ strong, b {
 /* Logo */
 header hgroup {
     position: absolute;
-    background: url(../images/logo.png) no-repeat;
-    height: 60px;
-    width: 218px;
+    background: url(../images/logoname.png) no-repeat ;
+    height: 130px;
+    width: 314px;
     display: block;
-    top: 85px;
+    top: 65px;
     left: 10px;
 }
 header hgroup h1 {
@@ -559,6 +559,17 @@ header form#quick-search {
   	width: 222px;
     top: 92px;
     right: 10px;
+}
+header div#logo{
+  position: absolute;
+    width: 173px;
+    height: 135px;
+    background: url(../images/logo.png) no-repeat ;
+    margin: 0;
+    padding: 0;
+
+    top: 65px;
+    right: -10px;
 }
 header fieldset.search {
     border: none;
@@ -1156,6 +1167,7 @@ nav2 li #signup-content {
 
 #login #actions {
   margin: 10px 0 0 0;
+  max-width: 270px;
 }
 
 #login #submit {
