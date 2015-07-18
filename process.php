@@ -28,7 +28,9 @@ $count=mysql_num_rows($result);
 if($count==1){
 	// Set cookies. I set my cookies to last 24 hours
 	$expires = 1 * 1000 * 60 * 60 * 24;
+	$row = mysql_fetch_array($result);
 	setcookie("username", $username, time()+$expires);
+	setcookie("name",$row['name'],time()+$expires);
 	setcookie("password", $password, time()+$expires);
 	
 	// Re-direct to backend

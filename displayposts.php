@@ -17,6 +17,7 @@ function displayposts(){
   						$text=$row['posttext'];
   						$time=$row['timestamp'];
   						$by=$row['name'];
+              $id=$row['id'];
   						$imageurl=$row['imageurl'];
 
   					
@@ -41,7 +42,14 @@ function displayposts(){
             				<b class='byodd'>".
               					$by.
             				"</b>
-            				</div>";
+
+                    <a href='blog.php?postid=".$id."'>comments</a>
+            				</div>
+
+
+
+
+                    ";
             			}
 
             			else 
@@ -65,6 +73,7 @@ function displayposts(){
             				<b class='byeven'>".
               					$by.
             				"</b>
+                        <a href='blog.php?postid=".$id."'>comments</a>
             				</div>";
             			}
 
@@ -76,4 +85,7 @@ function displayposts(){
 
 
 	}
+
+
+
 ?>

@@ -917,7 +917,7 @@ ol.commentlist {
 .commentlist li {
 	list-style: none;
 	margin: 0;
-	padding: 15px 0 0 0;
+	padding: 2px 0 0 0;
 	border-bottom: 1px solid #261a14;
 }
 .commentlist li .comment-info {
@@ -926,21 +926,22 @@ ol.commentlist {
 	overflow: hidden;
 }
 .commentlist li .comment-info img {
-	float: right;
+	/*float: right;*/
 	margin: 5px 25px 0 0;
 }
 .commentlist li .comment-info cite {
 	display: block;
-	margin: 0; padding: 5px 65px 5px 25px;
+  float: right;
+	padding: 5px 25px 5px 25px;
 	font-style: normal;
 }
 .commentlist li .comment-info cite .comment-data {
-	font-size: .8em;
+	font-size: .7em;
 	font-weight: normal;
 }
 .commentlist li .comment-text {
 	clear: both;
-	margin: 0; padding: 0 20px 25px 25px;
+	margin: 0; padding: 0 0px 0px 20px;
 }
 .commentlist li .comment-text p {
 	margin:  10px 0 20px 0;
