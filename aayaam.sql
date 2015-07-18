@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 29, 2015 at 03:16 PM
+-- Generation Time: Jul 18, 2015 at 08:36 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `aayaam`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(10) NOT NULL,
+  `name` text NOT NULL,
+  `username` text NOT NULL,
+  `postid` int(10) NOT NULL,
+  `commenttext` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COMMENT='table for comments';
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `name`, `username`, `postid`, `commenttext`, `timestamp`) VALUES
+(1, 'shweta', 'shweta@live.com', 0, '', '2015-07-18 16:49:59'),
+(2, 'shweta', 'shweta@live.com', 0, 'really good pic\r\n', '2015-07-18 16:54:17'),
+(3, 'shweta', 'shweta@live.com', 0, 'really good pic\r\n', '2015-07-18 17:25:16'),
+(4, 'shweta', 'shweta@live.com', 14, 'mast pic be', '2015-07-18 17:28:15'),
+(5, 'shweta', 'shweta@live.com', 14, 'mast pic be', '2015-07-18 17:28:54');
 
 -- --------------------------------------------------------
 
@@ -49,6 +75,23 @@ INSERT INTO `posts` (`id`, `name`, `username`, `posthead`, `posttext`, `timestam
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `userdetails`
+--
+
+CREATE TABLE IF NOT EXISTS `userdetails` (
+  `id` int(10) NOT NULL COMMENT 'same as id in userlogin table',
+  `name` text NOT NULL,
+  `email` text NOT NULL,
+  `phone` bigint(10) NOT NULL,
+  `current_city` text NOT NULL,
+  `dob` date NOT NULL,
+  `batch` int(11) NOT NULL,
+  `dept` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `userslogin`
 --
 
@@ -59,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `userslogin` (
   `password` text NOT NULL,
   `emailverified` tinyint(1) NOT NULL DEFAULT '0',
   `verified` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='table for login, email verification and member verificatio';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='table for login, email verification and member verificatio';
 
 --
 -- Dumping data for table `userslogin`
@@ -74,16 +117,29 @@ INSERT INTO `userslogin` (`id`, `name`, `username`, `password`, `emailverified`,
 (6, 'pradeepsng30@gmail.com', 'pradeepsng30@gmail.com', 'root2', 0, 0),
 (7, 'pradeep', 'p@gmail.com', 'febc8f8ac083f5fc27e032c81e7b536a', 0, 0),
 (8, 'pradeep', 'p@gmail.com', 'febc8f8ac083f5fc27e032c81e7b536a', 0, 0),
-(9, 'pradeep', 'pradeep@gmail.com', 'febc8f8ac083f5fc27e032c81e7b536a', 0, 0);
+(9, 'pradeep', 'pradeep@gmail.com', 'febc8f8ac083f5fc27e032c81e7b536a', 0, 0),
+(10, 'shweta', 'shweta@live.com', '4207e1e6e3809688a8b9ed1b2c1b7faa', 0, 0);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `userdetails`
+--
+ALTER TABLE `userdetails`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -97,6 +153,11 @@ ALTER TABLE `userslogin`
 --
 
 --
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
@@ -105,7 +166,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `userslogin`
 --
 ALTER TABLE `userslogin`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
